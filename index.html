@@ -2,33 +2,25 @@
   <head>
     <link rel="stylesheet" type="text/css" href="css-based-animation/style.css">
     <link rel="stylesheet" type="text/css" href="canvas-based-animation/style.css">
+  </head>
+
+  <body>
+    <div>
+      <button id='start-test'>start test</button>
+      <button id='stop-anim'>stop anim</button>
+    </div>
+    <div id="animation-wrapper">
+      
+    </div>
+    <div class="counter">
+      FPS: --.-
+    </div>
+    <canvas width=500 id="chart"></canvas>
+
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.js"></script>
     <script src="canvas-based-animation/canvas-script.js"></script>
     <script src="css-based-animation/script.js"></script>
     <script src="script.js"></script>
-    <style>
-      .animation-area {
-        float: left;
-      }
-    </style>
-  </head>
-
-  <body>
-    <div>
-    <button id='start-test'>start test</button>
-    <button id='stop-anim'>stop anim</button>
-    </div>
-    	<canvas width="500px" height="500px" class="animation-area" id="animation-area">
-	</canvas>
-        <div id="css-animation-area" class="animation-area css-anim">
-		<div class="animatable-object" id="o1">
-		</div>
-		<div class="animatable-object" id="o2">
-		</div>
-		<div class="animatable-object" id="o3">
-		</div>
-	</div>
-        <canvas width=500 id="chart"></canvas>
   </body>
 </html>

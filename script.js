@@ -1,18 +1,22 @@
+var counter = document.getElementsByClassName('counter')[0];
 $(document).ready(function() {
   var animTime = 5000;
   var chartCtx = $('#chart').get(0).getContext('2d');
   $('#start-test').click(function() {
     console.log('fasdfasd');
-    canvasAnimEnabled = true;
-    startCanvasAnimation();
+    
+    
+    setupCanvas(2000);
     setTimeout(function() {
-      canvasAnimEnabled = false;
+      destroyCanvas();
+      
       console.log(canvasResults);
-      //$('.css-anim').addClass('start-css-anim');
-      setupCssBalls();
-      tick();
+      
+      setupCss(2000);
       setTimeout(function() {
-        //$('.css-anim').removeClass('start-css-anim');
+        destroyCss();
+        
+        
         var chart = new Chart(chartCtx, {
           type: 'line',
           data: {
@@ -22,16 +26,18 @@ $(document).ready(function() {
             }]
           },
           options: {
-        scales: {
-            xAxes: [{
+            scales: {
+              xAxes: [{
                 type: 'linear',
                 position: 'bottom'
-            }]
-        }
-    }
+              }]
+            }
+          }
         });
+
       }, animTime);
     }, animTime);
+  
   });
-})
+});
 

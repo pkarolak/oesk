@@ -3,6 +3,18 @@ body {
 	padding: 10px;
 }
 
+.counter {
+	color: #46464f;
+	font-family: sans-serif;
+	text-align: center;
+	margin-top: 20px;
+	width: 80px;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
+
+
 #animation-area {
 	width: 500px;
 	height: 500px;
