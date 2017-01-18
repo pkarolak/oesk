@@ -1,6 +1,7 @@
 var canvasAnimEnabled = false;
 var canvasResults = [];
 var canvas;
+var testCase = 0;
 
 function setupCanvas(count) {
 	var animationArea = document.createElement('canvas');
@@ -9,9 +10,9 @@ function setupCanvas(count) {
   	animationArea.width = "500";
   	animationArea.height = "500";
   	document.getElementById('animation-wrapper').appendChild(animationArea);
-
+        if (canvasResults[testCase] === undefined) canvasResults[testCase] = [];
   	canvasAnimEnabled = true;
-  	
+
   	function initBalls(count) {
 		balls = [];
 		color = "rgba(45, 86, 153, 0.4)";
@@ -69,7 +70,7 @@ function setupCanvas(count) {
 	function animate() {
 		//stats.end();
 	    if (!canvasAnimEnabled) return;
-		
+
 		var context = canvas.getContext('2d');
 
 		updateBalls();
@@ -90,11 +91,11 @@ function setupCanvas(count) {
 		var time = Date.now();
 		frame++;
 		if (time - startTime > 1000) {
-			var fps = (frame / ((time - startTime) / 1000)).toFixed(1);
+			var fps = (frame / ((time - startTime) / 1000));
 		    console.log( fps );
-		    counter.innerHTML = "FPS: " + fps;
-		    canvasResults.push( fps );
-	        startTime = time;
+		    counter.innerHTML = "FPS: " + fps.toFixed(1);
+		    canvasResults[testCase].push( fps );
+	            startTime = time;
 		    frame = 0;
 		}
 		window.requestAnimationFrame(animate);

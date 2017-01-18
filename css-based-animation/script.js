@@ -2,6 +2,7 @@ var cssAnimEnabled = false;
 var startTime;
 var cssResults = [];
 
+
 function setupCss(ballsNumber) {
   var animationArea = document.createElement('div');
   animationArea.id = "css-animation-area";
@@ -17,6 +18,7 @@ function setupCss(ballsNumber) {
   document.getElementById('animation-wrapper').appendChild(animationArea);
   cssAnimEnabled = true;
   startTime = Date.now();
+  if (cssResults[testCase] === undefined) cssResults[testCase] = [];
   tick();
 }
 
@@ -34,10 +36,11 @@ function tick() {
   var time = Date.now();
   frame++;
   if (time - startTime > 1000) {
-      var fps = (frame / ((time - startTime) / 1000)).toFixed(1);
+      var fps = (frame / ((time - startTime) / 1000));
       console.log( fps );
-      counter.innerHTML = "FPS: " + fps;
-      cssResults.push( fps );
+      counter.innerHTML = "FPS: " + fps.toFixed(1);
+      console.log(testCase);
+      cssResults[testCase].push( fps );
       startTime = time;
       frame = 0;
 	}
