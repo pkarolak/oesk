@@ -1,0 +1,55 @@
+body {
+	background-color: #e1e1e8;
+	padding: 10px;
+}
+
+#animation-area {
+	width: 500px;
+	height: 500px;
+	background-color: #ffffff;
+	margin-left: auto;
+	margin-right: auto;
+	box-shadow: 0px 3px 14px -5px rgba(19,15,38,1);
+	border-radius: 4px;
+	position: relative;
+	display: block;
+}
+
+.animatable-object {
+	position: absolute;
+	width: 30px;
+	height: 30px;
+	border-radius: 100%;
+	background-color: #2d5699;
+	opacity: 0.4;
+
+}
+
+
+
+@-webkit-keyframes moveX {
+  from { left: 0; } to { left: 470px; }
+}
+@-moz-keyframes moveX {
+  from { left: 0; } to { left: 470px; }
+}
+@-o-keyframes moveX {
+  from { left: 0; } to { left: 470px; }
+}
+@keyframes moveX {
+  from { left: 0; } to { left: 470px; }
+}
+
+@-webkit-keyframes moveY {
+  from { top: 0; } to { top: 470px; }
+}
+@-moz-keyframes moveY {
+  from { top: 0; } to { top: 470px; }
+}
+@-o-keyframes moveY {
+  from { top: 0; } to { top: 470px; }
+}
+@keyframes moveY {
+  from { top: 0; } to { top: 470px; }
+}
+
