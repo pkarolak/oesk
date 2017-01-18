@@ -37,7 +37,7 @@ $(document).ready(function() {
               new Chart(chart[0].getContext('2d'), {
                 type: 'bar',
                 data: {
-                  labels: ['100 kulków', '500 kulków', '1000 kulków', '2000 kulków'],
+                  labels: ['100 kulkow', '500 kulkow', '1000 kulkow', '2000 kulkow'],
                   datasets: [
                     {
                       label: 'css',
