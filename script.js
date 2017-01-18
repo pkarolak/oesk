@@ -1,6 +1,8 @@
 var counter = document.getElementsByClassName('counter')[0];
+
+
 $(document).ready(function() {
-  var animTime = 5000;
+  var animTime = 2000;
   var chartCtx = $('#chart').get(0).getContext('2d');
   $('#start-test').click(function() {
     console.log('fasdfasd');
@@ -20,16 +22,27 @@ $(document).ready(function() {
         var chart = new Chart(chartCtx, {
           type: 'line',
           data: {
-            datasets: [{
-              label: 'scatter',
-              data: canvasResults.map((v, i) => ({x: i, y: v})),
-            }]
+            datasets: [
+              {
+                label: 'Canvas',
+                data: canvasResults.map((v, i) => ({x: i+1, y: v})),
+              },
+              {
+                label: 'CSS',
+                data: cssResults.map((v, i) => ({x: i+1, y: v})),
+              }
+            ]
           },
           options: {
             scales: {
               xAxes: [{
                 type: 'linear',
-                position: 'bottom'
+                position: 'bottom',
+                ticks: {
+                    max: 6,
+                    min: 0,
+                    stepSize: 1
+                }
               }]
             }
           }

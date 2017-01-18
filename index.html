@@ -1,7 +1,6 @@
 <html>
   <head>
-    <link rel="stylesheet" type="text/css" href="css-based-animation/style.css">
-    <link rel="stylesheet" type="text/css" href="canvas-based-animation/style.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
   </head>
 
   <body>
@@ -15,7 +14,10 @@
     <div class="counter">
       FPS: --.-
     </div>
-    <canvas width=500 id="chart"></canvas>
+    
+    <div class="chart-wrapper">
+      <canvas width=500 id="chart"></canvas>
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.js"></script>

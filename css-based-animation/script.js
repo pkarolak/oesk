@@ -1,5 +1,6 @@
 var cssAnimEnabled = false;
 var startTime;
+var cssResults = [];
 
 function setupCss(ballsNumber) {
   var animationArea = document.createElement('div');
@@ -33,8 +34,10 @@ function tick() {
   var time = Date.now();
   frame++;
   if (time - startTime > 1000) {
-      console.log( (frame / ((time - startTime) / 1000)).toFixed(1) );
-      counter.innerHTML = "FPS: "+(frame / ((time - startTime) / 1000)).toFixed(1);
+      var fps = (frame / ((time - startTime) / 1000)).toFixed(1);
+      console.log( fps );
+      counter.innerHTML = "FPS: " + fps;
+      cssResults.push( fps );
       startTime = time;
       frame = 0;
 	}

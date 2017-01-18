@@ -90,9 +90,10 @@ function setupCanvas(count) {
 		var time = Date.now();
 		frame++;
 		if (time - startTime > 1000) {
-		    console.log( (frame / ((time - startTime) / 1000)).toFixed(1) );
-		    counter.innerHTML = "FPS: "+(frame / ((time - startTime) / 1000)).toFixed(1);
-		    canvasResults.push((frame / ((time - startTime) / 1000)).toFixed(1));
+			var fps = (frame / ((time - startTime) / 1000)).toFixed(1);
+		    console.log( fps );
+		    counter.innerHTML = "FPS: " + fps;
+		    canvasResults.push( fps );
 	        startTime = time;
 		    frame = 0;
 		}

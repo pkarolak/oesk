@@ -15,13 +15,29 @@ body {
 }
 
 
-#animation-area {
+.animation-area {
 	width: 500px;
 	height: 500px;
 	background-color: #ffffff;
 	margin-left: auto;
 	margin-right: auto;
-	box-shadow: 0px 3px 14px -5px rgba(19,15,38,1);
+	box-shadow: 0 3px 14px -5px rgba(19,15,38,1);
+	border-radius: 4px;
+	position: relative;
+	display: block;
+}
+
+.chart-wrapper {
+	/*width: 100%;*/
+	height: 320px;
+	padding: 32px;
+	background-color: #ffffff;
+	margin-top: 32px;
+	/*
+	margin-left: auto;
+	margin-right: auto;
+	*/
+	box-shadow: 0 3px 14px -5px rgba(19,15,38,1);
 	border-radius: 4px;
 	position: relative;
 	display: block;
@@ -36,8 +52,6 @@ body {
 	opacity: 0.4;
 
 }
-
-
 
 @-webkit-keyframes moveX {
   from { left: 0; } to { left: 470px; }
