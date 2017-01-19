@@ -1,9 +1,13 @@
 var cssAnimEnabled = false;
 var startTime;
 var cssResults = [];
+var cssFps = 0;
+var time;
+var frame = 0;
 
 
 function setupCss(ballsNumber) {
+
   var animationArea = document.createElement('div');
   animationArea.id = "css-animation-area";
   animationArea.className = "animation-area css-anim";
@@ -17,30 +21,38 @@ function setupCss(ballsNumber) {
   }
   document.getElementById('animation-wrapper').appendChild(animationArea);
   cssAnimEnabled = true;
-  startTime = Date.now();
   if (cssResults[testCase] === undefined) cssResults[testCase] = [];
+  cssFps = 0;
+  console.log("Welcome CSS");
+  frame = 0;
+  startTime = Date.now();
+  time = Date.now();
+  console.log("CSS FPS on start: "+cssFps);
   tick();
 }
 
 function destroyCss() {
   cssAnimEnabled = false;
   document.getElementById('css-animation-area').remove();
+  console.log("Goodbye CSS");
 }
 
 
-var frame = 0;
 var counter = document.getElementsByClassName('counter')[0];
 
 function tick() {
-  if(!cssAnimEnabled) return;
-  var time = Date.now();
+  console.log("CSS FPS on tick: "+cssFps);
+  if(!cssAnimEnabled) {console.log("and animation disabled"); return;}
+  console.log("and animation enabled");
+  time = Date.now();
   frame++;
+  console.log(frame + " " + time + " " + startTime);
   if (time - startTime > 1000) {
-      var fps = (frame / ((time - startTime) / 1000));
-      console.log( fps );
-      counter.innerHTML = "FPS: " + fps.toFixed(1);
+      cssFps = (frame / ((time - startTime) / 1000));
+      console.log( cssFps );
+      counter.innerHTML = "CSS FPS: " + cssFps.toFixed(1);
       console.log(testCase);
-      cssResults[testCase].push( fps );
+      cssResults[testCase].push( cssFps );
       startTime = time;
       frame = 0;
 	}

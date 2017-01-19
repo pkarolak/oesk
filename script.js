@@ -7,10 +7,14 @@ function runTest(ballCount) {
       destroyCanvas();
 
       console.log(canvasResults);
+     
 
       setupCss(ballCount);
       setTimeout(function() {
         destroyCss();
+        
+        console.log(cssResults);
+
         resolve();
         testCase++;
       }, animTime);
@@ -37,7 +41,7 @@ $(document).ready(function() {
               new Chart(chart[0].getContext('2d'), {
                 type: 'bar',
                 data: {
-                  labels: ['100 kulkow', '500 kulkow', '1000 kulkow', '2000 kulkow'],
+                  labels: ['100 kulek', '500 kulek', '1000 kulek', '2000 kulek'],
                   datasets: [
                     {
                       label: 'css',
@@ -70,7 +74,7 @@ $(document).ready(function() {
                     }]
                   }
                 }
-              })
+              });
            // }
           });
         });

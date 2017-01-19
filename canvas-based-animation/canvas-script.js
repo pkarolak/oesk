@@ -91,9 +91,9 @@ function setupCanvas(count) {
 		var time = Date.now();
 		frame++;
 		if (time - startTime > 1000) {
-			var fps = (frame / ((time - startTime) / 1000));
+			fps = (frame / ((time - startTime) / 1000));
 		    console.log( fps );
-		    counter.innerHTML = "FPS: " + fps.toFixed(1);
+		    counter.innerHTML = "JS FPS: " + fps.toFixed(1);
 		    canvasResults[testCase].push( fps );
 	            startTime = time;
 		    frame = 0;
@@ -104,6 +104,8 @@ function setupCanvas(count) {
 
 	canvas = document.getElementById('canvas-animation-area');
 	var balls = initBalls(count);
+	var fps = 0;
+	console.log("Welcome Canvas");
 	var fpsStart = new Date().getTime();
 	animate();
 }
@@ -112,4 +114,5 @@ function setupCanvas(count) {
 function destroyCanvas() {
 	canvasAnimEnabled = false;
 	var canvas = document.getElementById('canvas-animation-area').remove();
+	console.log("Goodbye Canvas");
 }
