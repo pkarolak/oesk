@@ -2,8 +2,12 @@ var canvasAnimEnabled = false;
 var canvasResults = [];
 var canvas;
 var testCase = 0;
+var c_ballsNumber = 1;
 
 function setupCanvas(count) {
+	c_ballsNumber = count;
+	var counter = document.getElementsByClassName('counter')[0];
+	counter.innerHTML = "JS (" + c_ballsNumber +") | FPS: --.-";
 	var animationArea = document.createElement('canvas');
   	animationArea.id = "canvas-animation-area";
   	animationArea.className = "animation-area canvas-anim";
@@ -66,7 +70,7 @@ function setupCanvas(count) {
 
 	var startTime = Date.now();
 	var frame = 0;
-	var counter = document.getElementsByClassName('counter')[0];
+	
 	function animate() {
 		//stats.end();
 	    if (!canvasAnimEnabled) return;
@@ -93,7 +97,7 @@ function setupCanvas(count) {
 		if (time - startTime > 1000) {
 			fps = (frame / ((time - startTime) / 1000));
 		    console.log( fps );
-		    counter.innerHTML = "JS FPS: " + fps.toFixed(1);
+		    counter.innerHTML = "JS (" + c_ballsNumber +") | FPS: " + fps.toFixed(1);
 		    canvasResults[testCase].push( fps );
 	            startTime = time;
 		    frame = 0;

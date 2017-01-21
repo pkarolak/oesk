@@ -4,10 +4,14 @@ var cssResults = [];
 var cssFps = 0;
 var time;
 var frame = 0;
+var c_ballsNumber = 1;
 
 
 function setupCss(ballsNumber) {
+  c_ballsNumber = ballsNumber;
 
+  var counter = document.getElementsByClassName('counter')[0];
+  counter.innerHTML = "CSS (" + c_ballsNumber +") | FPS: --.-";
   var animationArea = document.createElement('div');
   animationArea.id = "css-animation-area";
   animationArea.className = "animation-area css-anim";
@@ -50,7 +54,7 @@ function tick() {
   if (time - startTime > 1000) {
       cssFps = (frame / ((time - startTime) / 1000));
       console.log( cssFps );
-      counter.innerHTML = "CSS FPS: " + cssFps.toFixed(1);
+      counter.innerHTML = "CSS (" + c_ballsNumber +") | FPS: " + cssFps.toFixed(1);
       console.log(testCase);
       cssResults[testCase].push( cssFps );
       startTime = time;

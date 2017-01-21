@@ -4,24 +4,31 @@
   </head>
 
   <body>
-    <div>
-      <button id='start-test'>start test</button>
-      <button id='stop-anim'>stop anim</button>
+    <div id="animation-name">
+      <div id="className">Ocena Efektywności Systemów Komputerowych<br/>
+      Patryk Karolak (106657) & Michał Hartwich ()
+      </div>
+      <div id="topic">Porównanie wydajności renderowania animacji w przeglądarce internetowej dla technologii HTML + CSS i HTML5 Canvas</div>
     </div>
-    <div id="animation-wrapper">
-
+    <div id="description">
+      <p>
+        Ta aplikacja dokona serii pomiarów wydajności renderowania animacji w Twojej przeglądarce.
+      </p>
+      <p>
+        Wartością mierzoną będzie ilość klatek na sekundę (FPS - ang. "frames per second"), jaką przeglądarka zdoła wyrenderować w każdej z bananych technologii, dla różnej ilości renderowanych obiektów poruszających się losowo po ekranie. Wartość ta ma kluczowy wpływ na jakość video/animacji. Zbyt niski FPS spowoduje wrażenie "zacinania się" animacji.
+      </p>
+      <p>
+        Pomiary zostaną dokonane w 7 rundach. W każdej rundzie na ekranie pojawi się animacja wykonana z użyciem HTML5 Canvas, a po niej animacja wykonana z użyciem technologii HTML + CSS. W każdej rundzie wartością zmienną jest ilość renderowanych obiektów - odpowiednio będzie to: 1, 500, 1000, 2000, 3000, 4000, 5000 kulek.
+      </p>
+      <p>
+        Wyniki pomiarów zostaną przedstawione w postaci wykresu kolumnowego. Wartości w kolumnach będą odpowiadały średniej wartości FPS z danego pomiaru.
+      </p>
+      <a href="pomiar.html">
+        <div class="button raised blue">
+          <div class="center" fit>Rozpocznij pomiary</div>
+          <paper-ripple fit></paper-ripple>
+        </div>
+      </a>
     </div>
-    <div class="counter">
-      FPS: --.-
-    </div>
-
-    <div class="chart-wrapper">
-    </div>
-
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.js"></script>
-    <script src="canvas-based-animation/canvas-script.js"></script>
-    <script src="css-based-animation/script.js"></script>
-    <script src="script.js"></script>
   </body>
 </html>

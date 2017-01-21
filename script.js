@@ -23,45 +23,55 @@ function runTest(ballCount) {
 }
 
 $(document).ready(function() {
-  $('#start-test').click(function() {
-    runTest(100).then(function() {
-      runTest(500).then(function() {
-        runTest(1000).then(function() {
-          runTest(2000).then(function() {
+    runTest(1).then(function() {
+    runTest(500).then(function() {
+    runTest(1000).then(function() {
+      runTest(2000).then(function() {
+        runTest(3000).then(function() {
+          runTest(4000).then(function() {
+            runTest(5000).then(function() {
             const cssResultsAvgs = cssResults.map(function(i) {
-              return i.reduce(function(a, b) { return a + b }) / i.length;
+              return (i.reduce(function(a, b) { return a + b }) / i.length).toFixed(1);
             });
             const canvasResultsAvgs = canvasResults.map(function(i) {
-              return i.reduce(function(a, b) { return a + b }) / i.length;
+              return (i.reduce(function(a, b) { return a + b }) / i.length).toFixed(1);
             });
             //for (var i=0; i<4; i++) {
+              $(".hidden").removeClass("hidden");
+              $(".counter").addClass("hidden");
               console.log([cssResultsAvgs[i], canvasResultsAvgs[i]]);
               var chart = $('<canvas></canvas>');
               $('.chart-wrapper').append(chart);
               new Chart(chart[0].getContext('2d'), {
                 type: 'bar',
                 data: {
-                  labels: ['100 kulek', '500 kulek', '1000 kulek', '2000 kulek'],
+                  labels: ['1 kulka','500 kulek', '1000 kulek', '2000 kulek', '3000 kulek', '4000 kulek', '5000 kulek'],
                   datasets: [
                     {
-                      label: 'css',
+                      label: 'HTML5 Canvas',
                       backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(255, 99, 132, 0.2)',
-                      ],
-                      data: cssResultsAvgs,
-                    },
-                    {
-                      label: 'canvas',
-                      backgroundColor: [
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
                         'rgba(54, 162, 235, 0.2)',
                         'rgba(54, 162, 235, 0.2)',
                         'rgba(54, 162, 235, 0.2)',
                         'rgba(54, 162, 235, 0.2)',
                       ],
                       data: canvasResultsAvgs,
+                    },
+                    {
+                      label: 'HTML + CSS',
+                      backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(255, 99, 132, 0.2)',
+                      ],
+                      data: cssResultsAvgs,
                     }
                   ]
                 },
@@ -70,15 +80,22 @@ $(document).ready(function() {
                     yAxes: [{
                       ticks: {
                         beginAtZero: true
-                      }
+                      },
+                      scaleLabel: {
+                          display: true,
+                          labelString: 'FPS'
+                        }
                     }]
                   }
                 }
               });
            // }
           });
+          });
+          });
         });
       });
+    });
   /*  var chartCtx = $('#chart').get(0).getContext('2d');
       var chart = new Chart(chartCtx, {
           type: 'line',
@@ -110,5 +127,4 @@ $(document).ready(function() {
         }); */
     });
   });
-});
 
